@@ -1,0 +1,727 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alfiandra Raditya | Portfolio</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        dark: '#121212', 
+                        card: '#1a1a1a', 
+                        cardHover: '#242424',
+                        primary: '#2563eb', 
+                        accent: '#3b82f6',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #121212; }
+        ::-webkit-scrollbar-thumb { background: #333333; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #555555; }
+
+        .fade-in-up {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+        .fade-in-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .filter-btn.active {
+            background-color: #2563eb;
+            color: white;
+            border-color: #2563eb;
+        }
+        
+        .portfolio-item {
+            transition: all 0.4s ease;
+        }
+        .portfolio-item.hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body class="bg-dark text-gray-200 font-sans antialiased overflow-x-hidden">
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 top-0 bg-dark/90 backdrop-blur-md border-b border-gray-800/60 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <div class="flex-shrink-0 flex items-center">
+                    <a href="#home" class="text-2xl font-extrabold text-white tracking-wider">
+                        ALFIANDRA<span class="text-primary">.</span>
+                    </a>
+                </div>
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex space-x-8">
+                    <a href="#about" class="text-gray-300 hover:text-primary transition-colors text-sm font-medium">About Me</a>
+                    <a href="#experience" class="text-gray-300 hover:text-primary transition-colors text-sm font-medium">Experience & Education</a>
+                    <a href="#skills" class="text-gray-300 hover:text-primary transition-colors text-sm font-medium">Skills & Software</a>
+                    <a href="#portfolio" class="text-gray-300 hover:text-primary transition-colors text-sm font-medium">Portfolio</a>
+                    <a href="#contact" class="text-gray-300 hover:text-primary transition-colors text-sm font-medium">Contact</a>
+                </div>
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="text-gray-300 hover:text-white focus:outline-none">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-card border-b border-gray-800 absolute w-full">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="#about" class="block px-3 py-2 rounded-md text-base font-medium hover:bg-gray-800 hover:text-white">About Me</a>
+                <a href="#experience" class="block px-3 py-2 rounded-md text-base font-medium hover:bg-gray-800 hover:text-white">Experience & Education</a>
+                <a href="#skills" class="block px-3 py-2 rounded-md text-base font-medium hover:bg-gray-800 hover:text-white">Skills & Software</a>
+                <a href="#portfolio" class="block px-3 py-2 rounded-md text-base font-medium hover:bg-gray-800 hover:text-white">Portfolio</a>
+                <a href="#contact" class="block px-3 py-2 rounded-md text-base font-medium hover:bg-gray-800 hover:text-white">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Container -->
+    <main class="pt-28 pb-16 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+
+        <!-- SECTION: About Me + Profile Photo Card -->
+        <section id="about" class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
+            <div class="lg:col-span-5 bg-gray-100 rounded-3xl p-6 border border-gray-200 shadow-xl flex flex-col justify-center relative overflow-hidden group fade-in-up">
+                <div class="absolute inset-x-8 inset-y-12 bg-primary rounded-2xl opacity-90 -z-0 flex items-center justify-end overflow-hidden">
+                    <span class="text-white/20 font-extrabold text-7xl uppercase tracking-widest mr-4 select-none">ANDRA</span>
+                </div>
+                <div class="relative z-10 rounded-2xl overflow-hidden aspect-[4/5] shadow-lg bg-gray-900 border border-gray-300">
+                    <img src="assets/IMG_20261101_194248.jpeg" alt="Alfiandra Raditya" onerror="this.src='https://placehold.co/600x800/1e293b/ffffff?text=Alfiandra+Photo'" class="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105">
+                </div>
+            </div>
+
+            <div class="lg:col-span-7 bg-gray-100 text-gray-900 rounded-3xl p-8 sm:p-10 border border-gray-200 shadow-xl flex flex-col justify-between fade-in-up" style="transition-delay: 150ms;">
+                <div>
+                    <div class="flex items-center justify-start mb-6">
+                        <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary text-white text-sm font-semibold tracking-wide shadow-md shadow-primary/30">
+                            <span class="w-2 h-2 rounded-full bg-white animate-pulse"></span> About me
+                        </div>
+                    </div>
+                    
+                    <h1 class="text-3xl sm:text-4xl font-extrabold text-gray-900 tracking-tight mb-3">
+                        Alfiandra Raditya P. H.
+                    </h1>
+                    
+                    <div class="inline-block px-4 py-1.5 rounded-xl bg-primary text-white text-xs font-bold uppercase tracking-wider mb-6 shadow-md shadow-primary/30">
+                        Graphic Designer | Videographer | Photographer
+                    </div>
+                    
+                    <p class="text-gray-700 leading-relaxed text-sm sm:text-base font-normal">
+                        Mahasiswa D4 Teknik Telekomunikasi Politeknik Elektronika Negeri Surabaya (PENS) yang aktif berorganisasi serta berpengalaman di bidang <strong>creative media</strong> (videografi, fotografi, dan desain grafis). Memiliki keahlian komunikasi publik, kepemimpinan, dan manajemen proyek media yang teruji melalui peran kepanitiaan kampus maupun skala regional.
+                    </p>
+                </div>
+
+                <div class="mt-8 pt-4 border-t-2 border-primary w-full flex items-center justify-between text-xs text-gray-500 font-medium">
+                    <div><i class="fas fa-map-marker-alt text-primary mr-1"></i> Kediri, Jawa Timur</div>
+                    <div>PENS 2025</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION: Experience & Education + Software & Technical Skills -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+            <div class="lg:col-span-6 bg-gradient-to-b from-primary to-blue-950 rounded-3xl p-8 text-white shadow-2xl relative overflow-hidden fade-in-up">
+                <div class="absolute -right-12 -bottom-12 w-64 h-64 bg-white/5 rounded-full blur-2xl pointer-events-none"></div>
+                
+                <h2 class="text-2xl font-bold tracking-tight mb-8 flex items-center gap-3">
+                    <i class="fas fa-briefcase"></i> Work Experience
+                </h2>
+
+                <div class="space-y-6 text-sm mb-10 border-l-2 border-white/20 pl-4">
+                    <div>
+                        <span class="text-xs uppercase tracking-wider text-blue-200 font-semibold">2026</span>
+                        <h4 class="font-bold text-base text-white">Divisi KOMINFO - KPU HIMA TELKOM</h4>
+                        <p class="text-blue-100 text-xs mt-1">Mengelola publikasi digital & alur penyebaran informasi resmi Pemilu HIMA TELKOM 2026.</p>
+                    </div>
+                    <div>
+                        <span class="text-xs uppercase tracking-wider text-blue-200 font-semibold">Juli 2026</span>
+                        <h4 class="font-bold text-base text-white">Volunteer - PDD (IODI Kab. Kediri)</h4>
+                        <p class="text-blue-100 text-xs mt-1">Bertanggung jawab atas dokumentasi foto/video serta pembuatan aset grafis publikasi.</p>
+                    </div>
+                    <div>
+                        <span class="text-xs uppercase tracking-wider text-blue-200 font-semibold">Des 2025 - Jan 2026</span>
+                        <h4 class="font-bold text-base text-white">Head of Creative - Campus Fair 2026</h4>
+                        <p class="text-blue-100 text-xs mt-1">Memimpin 7 anggota tim kreatif dalam merancang konsep visual & media promosi digital.</p>
+                    </div>
+                    <div>
+                        <span class="text-xs uppercase tracking-wider text-blue-200 font-semibold">Des 2024 - Jan 2025</span>
+                        <h4 class="font-bold text-base text-white">Ketua Yearbook SMAN 2 Pare</h4>
+                        <p class="text-blue-100 text-xs mt-1">Mengarahkan tim 28 orang mengeksekusi buku tahunan dari konsep hingga vendor eksternal.</p>
+                    </div>
+                    <div>
+                        <span class="text-xs uppercase tracking-wider text-blue-200 font-semibold">Okt 2022 - Okt 2024</span>
+                        <h4 class="font-bold text-base text-white">Sekretaris Umum - OSIS SMAN 2 Pare</h4>
+                        <p class="text-blue-100 text-xs mt-1">Mengelola administrasi perizinan, kearsipan dokumen, serta proposal program kerja.</p>
+                    </div>
+                </div>
+
+                <h2 class="text-2xl font-bold tracking-tight mb-6 flex items-center gap-3 pt-4 border-t border-white/20">
+                    <i class="fas fa-graduation-cap"></i> Education
+                </h2>
+                <div class="space-y-4 text-sm border-l-2 border-white/20 pl-4">
+                    <div>
+                        <span class="text-xs uppercase tracking-wider text-blue-200 font-semibold">2025 - On Going</span>
+                        <h4 class="font-bold text-base text-white">D4 Teknik Telekomunikasi - PENS</h4>
+                    </div>
+                    <div>
+                        <span class="text-xs uppercase tracking-wider text-blue-200 font-semibold">2022 - 2025</span>
+                        <h4 class="font-bold text-base text-white">SMA Negeri 2 Pare</h4>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Skills -->
+            <div class="lg:col-span-6 space-y-8 flex flex-col justify-between">
+                <div id="skills" class="bg-card rounded-3xl p-8 border border-gray-800 shadow-xl fade-in-up" style="transition-delay: 100ms;">
+                    <h3 class="text-xl font-bold text-white mb-6 flex items-center gap-2">
+                        <i class="fas fa-laptop-code text-primary"></i> Software Proficiency
+                    </h3>
+                    <div class="grid grid-cols-2 sm:grid-cols-3 gap-4">
+                        <div class="bg-dark/60 p-4 rounded-2xl border border-gray-800 flex flex-col items-center justify-center gap-2 text-center hover:border-primary transition-colors">
+                             <img src="assets/logo-photoshop.png" alt="Photoshop" class="w-10 h-10 object-contain">
+                             <span class="text-xs font-semibold text-gray-300">Photoshop</span>
+                        </div>
+                        <div class="bg-dark/60 p-4 rounded-2xl border border-gray-800 flex flex-col items-center justify-center gap-2 text-center hover:border-primary transition-colors">
+                             <img src="assets/logo-premiere_pro.png" alt="Premiere Pro" class="w-10 h-10 object-contain">
+                             <span class="text-xs font-semibold text-gray-300">Premiere Pro</span>
+                        </div>
+                        <div class="bg-dark/60 p-4 rounded-2xl border border-gray-800 flex flex-col items-center justify-center gap-2 text-center hover:border-primary transition-colors">
+                             <img src="assets/logo-after_effects.png" alt="After Effects" class="w-10 h-10 object-contain">
+                             <span class="text-xs font-semibold text-gray-300">After Effects</span>
+                        </div>
+                        <div class="bg-dark/60 p-4 rounded-2xl border border-gray-800 flex flex-col items-center justify-center gap-2 text-center hover:border-primary transition-colors">
+                             <img src="assets/logo-lightroom.png" alt="Lightroom" class="w-10 h-10 object-contain">
+                             <span class="text-xs font-semibold text-gray-300">Lightroom</span>
+                        </div>
+                        <div class="bg-dark/60 p-4 rounded-2xl border border-gray-800 flex flex-col items-center justify-center gap-2 text-center hover:border-primary transition-colors">
+                             <img src="assets/logo-canva.png" alt="Canva" class="w-10 h-10 object-contain">
+                             <span class="text-xs font-semibold text-gray-300">Canva</span>
+                        </div>
+                        <div class="bg-dark/60 p-4 rounded-2xl border border-gray-800 flex flex-col items-center justify-center gap-2 text-center hover:border-primary transition-colors">
+                             <img src="assets/logo-affinity.png" alt="Affinity" class="w-10 h-10 object-contain">
+                             <span class="text-xs font-semibold text-gray-300">Affinity</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-card rounded-3xl p-8 border border-gray-800 shadow-xl fade-in-up" style="transition-delay: 200ms;">
+                    <h3 class="text-xl font-bold text-white mb-6 flex items-center gap-2">
+                        <i class="fas fa-tools text-primary"></i> Technical & Soft Skills
+                    </h3>
+                    <div class="grid grid-cols-2 gap-3 text-sm text-gray-300">
+                        <div class="flex items-center gap-2 bg-dark/40 px-3 py-2 rounded-xl border border-gray-800/80">
+                            <i class="fas fa-check text-primary text-xs"></i> Graphic Design
+                        </div>
+                        <div class="flex items-center gap-2 bg-dark/40 px-3 py-2 rounded-xl border border-gray-800/80">
+                            <i class="fas fa-check text-primary text-xs"></i> Photography
+                        </div>
+                        <div class="flex items-center gap-2 bg-dark/40 px-3 py-2 rounded-xl border border-gray-800/80">
+                            <i class="fas fa-check text-primary text-xs"></i> Videography
+                        </div>
+                        <div class="flex items-center gap-2 bg-dark/40 px-3 py-2 rounded-xl border border-gray-800/80">
+                            <i class="fas fa-check text-primary text-xs"></i> Leadership
+                        </div>
+                        <div class="flex items-center gap-2 bg-dark/40 px-3 py-2 rounded-xl border border-gray-800/80">
+                            <i class="fas fa-check text-primary text-xs"></i> Event Management
+                        </div>
+                        <div class="flex items-center gap-2 bg-dark/40 px-3 py-2 rounded-xl border border-gray-800/80">
+                            <i class="fas fa-check text-primary text-xs"></i> Time Management
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SECTION: Portfolio Gallery with Filters -->
+        <section id="portfolio" class="bg-card rounded-3xl p-8 sm:p-12 border border-gray-800 shadow-xl fade-in-up">
+            <div class="text-center mb-10">
+                <h2 class="text-3xl font-bold text-white mb-3">Portfolio Gallery</h2>
+                <div class="w-12 h-1 bg-primary mx-auto rounded-full mb-6"></div>
+                <p class="text-gray-400 text-sm max-w-xl mx-auto">Koleksi karya desain, video motion, banner event, UMKM, hingga merchandise kreatif.</p>
+            </div>
+
+            <!-- Filter Buttons Diperbarui -->
+            <div class="flex flex-wrap justify-center gap-2 sm:gap-3 mb-10">
+                <button class="filter-btn active px-4 py-2 rounded-full border border-gray-700 bg-dark text-xs sm:text-sm font-medium text-gray-300 hover:border-primary hover:text-white transition-all" data-filter="all">All Works</button>
+                <button class="filter-btn px-4 py-2 rounded-full border border-gray-700 bg-dark text-xs sm:text-sm font-medium text-gray-300 hover:border-primary hover:text-white transition-all" data-filter="videos">Videos & Motion</button>
+                <button class="filter-btn px-4 py-2 rounded-full border border-gray-700 bg-dark text-xs sm:text-sm font-medium text-gray-300 hover:border-primary hover:text-white transition-all" data-filter="banners">Event Banners</button>
+                <button class="filter-btn px-4 py-2 rounded-full border border-gray-700 bg-dark text-xs sm:text-sm font-medium text-gray-300 hover:border-primary hover:text-white transition-all" data-filter="umkm">UMKM & Volunteer Design</button>
+                <button class="filter-btn px-4 py-2 rounded-full border border-gray-700 bg-dark text-xs sm:text-sm font-medium text-gray-300 hover:border-primary hover:text-white transition-all" data-filter="social">Social Media & Stories</button>
+                <button class="filter-btn px-4 py-2 rounded-full border border-gray-700 bg-dark text-xs sm:text-sm font-medium text-gray-300 hover:border-primary hover:text-white transition-all" data-filter="merch">Merchandise</button>
+                <button class="filter-btn px-4 py-2 rounded-full border border-gray-700 bg-dark text-xs sm:text-sm font-medium text-gray-300 hover:border-primary hover:text-white transition-all" data-filter="logo">Logo Design</button>
+                <button class="filter-btn px-4 py-2 rounded-full border border-gray-700 bg-dark text-xs sm:text-sm font-medium text-gray-300 hover:border-primary hover:text-white transition-all" data-filter="clothes">Clothes Design</button>
+            </div>
+
+            <!-- Grid Gallery -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6" id="portfolio-grid">
+                
+                <!-- Videos -->
+                <div class="portfolio-item videos group relative rounded-2xl overflow-hidden bg-black border border-gray-800">
+                    <video controls class="w-full h-64 object-contain bg-black">
+                        <source src="assets/Motion Twibbon SYNC 2026 min backsound_2.mp4" type="video/mp4">
+                    </video>
+                    <div class="absolute inset-0 pointer-events-none bg-gradient-to-t from-dark/90 via-dark/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-end p-6">
+                        <span class="text-primary text-xs font-bold uppercase drop-shadow-md">Motion Graphic</span>
+                        <h4 class="text-white font-semibold text-lg drop-shadow-md">Motion Twibbon SYNC 2026</h4>
+                    </div>
+                </div>
+
+                <div class="portfolio-item videos group relative rounded-2xl overflow-hidden bg-black border border-gray-800">
+                    <video controls class="w-full h-64 object-contain bg-black">
+                        <source src="assets/Bumper CF 26.mp4" type="video/mp4">
+                    </video>
+                    <div class="absolute inset-0 pointer-events-none bg-gradient-to-t from-dark/90 via-dark/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-end p-6">
+                        <span class="text-primary text-xs font-bold uppercase drop-shadow-md">Video Bumper</span>
+                        <h4 class="text-white font-semibold text-lg drop-shadow-md">Bumper Campus Fair SMA 2 Pare 2026</h4>
+                    </div>
+                </div>
+
+                <div class="portfolio-item videos group relative rounded-2xl overflow-hidden bg-black border border-gray-800">
+                    <video controls class="w-full h-64 object-contain bg-black">
+                        <source src="assets/Twibbon CF 26 ver.2.mp4" type="video/mp4">
+                    </video>
+                    <div class="absolute inset-0 pointer-events-none bg-gradient-to-t from-dark/90 via-dark/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-end p-6">
+                        <span class="text-primary text-xs font-bold uppercase drop-shadow-md">Motion Graphic</span>
+                        <h4 class="text-white font-semibold text-lg drop-shadow-md">Twibbon Campus Fair SMA 2 Pare 2026</h4>
+                    </div>
+                </div>
+                
+                <div class="portfolio-item videos group relative rounded-2xl overflow-hidden bg-black border border-gray-800">
+                    <video controls class="w-full h-64 object-contain bg-black">
+                        <source src="assets/Teaser Logo CF 26.mp4" type="video/mp4">
+                    </video>
+                    <div class="absolute inset-0 pointer-events-none bg-gradient-to-t from-dark/90 via-dark/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-end p-6">
+                        <span class="text-primary text-xs font-bold uppercase drop-shadow-md">Teaser</span>
+                        <h4 class="text-white font-semibold text-lg drop-shadow-md">Teaser Logo Campus Fair SMA 2 Pare 2026</h4>
+                    </div>
+                </div>
+
+                <!-- Gambar/Desain -->
+                <div class="portfolio-item umkm group relative rounded-2xl overflow-hidden bg-dark border border-gray-800">
+                    <img src="assets/UMKM Design (3).png" alt="UMKM Design" onerror="this.src='https://placehold.co/600x800/ff69b4/ffffff?text=Pischeese+Design+1'" class="w-full h-64 object-cover object-top transition-transform duration-500 group-hover:scale-105">
+                    <div class="absolute inset-0 bg-gradient-to-t from-dark/90 via-dark/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-end p-6 pointer-events-none">
+                        <span class="text-primary text-xs font-bold uppercase drop-shadow-md">UMKM Design</span>
+                        <h4 class="text-white font-semibold text-lg drop-shadow-md">Pamflet Pischeese Pisang Cheese Promo</h4>
+                    </div>
+                </div>
+
+                <div class="portfolio-item umkm group relative rounded-2xl overflow-hidden bg-dark border border-gray-800">
+                    <img src="assets/Cover Buku Skal XI-6.png" alt="UMKM Design" onerror="this.src='https://placehold.co/600x800/ff69b4/ffffff?text=Pischeese+Design+1'" class="w-full h-64 object-cover object-top transition-transform duration-500 group-hover:scale-105">
+                    <div class="absolute inset-0 bg-gradient-to-t from-dark/90 via-dark/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-end p-6 pointer-events-none">
+                        <span class="text-primary text-xs font-bold uppercase drop-shadow-md">Volunteer Design</span>
+                        <h4 class="text-white font-semibold text-lg drop-shadow-md">Cover Buku SKAL</h4>
+                    </div>
+                </div>
+
+                <div class="portfolio-item umkm group relative rounded-2xl overflow-hidden bg-dark border border-gray-800">
+                    <img src="assets/Layout Streaming Gameplay.png" alt="UMKM Design" onerror="this.src='https://placehold.co/600x800/ff69b4/ffffff?text=Pischeese+Design+1'" class="w-full h-64 object-cover object-top transition-transform duration-500 group-hover:scale-105">
+                    <div class="absolute inset-0 bg-gradient-to-t from-dark/90 via-dark/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-end p-6 pointer-events-none">
+                        <span class="text-primary text-xs font-bold uppercase drop-shadow-md">Volunteer Design</span>
+                        <h4 class="text-white font-semibold text-lg drop-shadow-md">Layout Streaming Gameplay E-Sport KTS 2024</h4>
+                    </div>
+                </div>
+
+                <div class="portfolio-item umkm group relative rounded-2xl overflow-hidden bg-dark border border-gray-800">
+                    <img src="assets/Andra.png" alt="UMKM Design" onerror="this.src='https://placehold.co/600x800/ff69b4/ffffff?text=Pischeese+Design+1'" class="w-full h-64 object-cover object-top transition-transform duration-500 group-hover:scale-105">
+                    <div class="absolute inset-0 bg-gradient-to-t from-dark/90 via-dark/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-end p-6 pointer-events-none">
+                        <span class="text-primary text-xs font-bold uppercase drop-shadow-md">Volunteer Design</span>
+                        <h4 class="text-white font-semibold text-lg drop-shadow-md">ID Card FLS3N 2025 Jawa Timur</h4>
+                    </div>
+                </div>
+
+                <div class="portfolio-item umkm group relative rounded-2xl overflow-hidden bg-dark border border-gray-800">
+                    <img src="assets/Poster Abid Kanaya 4.png" alt="UMKM Design" onerror="this.src='https://placehold.co/600x800/ff69b4/ffffff?text=Pischeese+Design+1'" class="w-full h-64 object-cover object-top transition-transform duration-500 group-hover:scale-105">
+                    <div class="absolute inset-0 bg-gradient-to-t from-dark/90 via-dark/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-end p-6 pointer-events-none">
+                        <span class="text-primary text-xs font-bold uppercase drop-shadow-md">Volunteer Design</span>
+                        <h4 class="text-white font-semibold text-lg drop-shadow-md">Pamflet Penampilan Tari Kalilan</h4>
+                    </div>
+                </div>
+
+                <div class="portfolio-item banners group relative rounded-2xl overflow-hidden bg-dark border border-gray-800">
+                    <img src="assets/Banner Depan Smada 2 x 2,7 Meter DN 50 SEAZONE FIX.png" alt="Banner Event" onerror="this.src='https://placehold.co/800x400/2563eb/ffffff?text=Banner+Dies+Natalis+50'" class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-105">
+                    <div class="absolute inset-0 bg-gradient-to-t from-dark/90 via-dark/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-end p-6 pointer-events-none">
+                        <span class="text-primary text-xs font-bold uppercase drop-shadow-md">Event Banner</span>
+                        <h4 class="text-white font-semibold text-lg drop-shadow-md">Banner Dies Natalis 50 SMAN 2 Pare</h4>
+                    </div>
+                </div>
+
+                <div class="portfolio-item banners group relative rounded-2xl overflow-hidden bg-dark border border-gray-800">
+                    <img src="assets/Banner Utama DN 50.png" alt="Banner Event" onerror="this.src='https://placehold.co/800x400/2563eb/ffffff?text=Banner+Dies+Natalis+50'" class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-105">
+                    <div class="absolute inset-0 bg-gradient-to-t from-dark/90 via-dark/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-end p-6 pointer-events-none">
+                        <span class="text-primary text-xs font-bold uppercase drop-shadow-md">Event Banner</span>
+                        <h4 class="text-white font-semibold text-lg drop-shadow-md">Banner Panggung Dies Natalis 50 SMAN 2 Pare</h4>
+                    </div>
+                </div>
+
+                <div class="portfolio-item banners group relative rounded-2xl overflow-hidden bg-dark border border-gray-800">
+                    <img src="assets/Dekor Podium.png" alt="Banner Event" onerror="this.src='https://placehold.co/800x400/2563eb/ffffff?text=Banner+Dies+Natalis+50'" class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-105">
+                    <div class="absolute inset-0 bg-gradient-to-t from-dark/90 via-dark/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-end p-6 pointer-events-none">
+                        <span class="text-primary text-xs font-bold uppercase drop-shadow-md">Event Banner</span>
+                        <h4 class="text-white font-semibold text-lg drop-shadow-md">Banner + Dekorasi Podium Dies Natalis 50 SMAN 2 Pare</h4>
+                    </div>
+                </div>
+
+                <div class="portfolio-item banners group relative rounded-2xl overflow-hidden bg-dark border border-gray-800">
+                    <img src="assets/Banner Depan Smada Kemah Blok 5,25 x 1,25 meter fix.png" alt="Banner Event" onerror="this.src='https://placehold.co/800x400/2563eb/ffffff?text=Banner+Dies+Natalis+50'" class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-105">
+                    <div class="absolute inset-0 bg-gradient-to-t from-dark/90 via-dark/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-end p-6 pointer-events-none">
+                        <span class="text-primary text-xs font-bold uppercase drop-shadow-md">Event Banner</span>
+                        <h4 class="text-white font-semibold text-lg drop-shadow-md">Banner Kemah Blok SMAN 2 Pare 2024</h4>
+                    </div>
+                </div>
+
+                <div class="portfolio-item banners group relative rounded-2xl overflow-hidden bg-dark border border-gray-800">
+                    <img src="assets/Banner Hari Ulang Tahun Dharma Wanita 5 x 1 meter 2.png" alt="Banner Event" onerror="this.src='https://placehold.co/800x400/2563eb/ffffff?text=Banner+Dies+Natalis+50'" class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-105">
+                    <div class="absolute inset-0 bg-gradient-to-t from-dark/90 via-dark/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-end p-6 pointer-events-none">
+                        <span class="text-primary text-xs font-bold uppercase drop-shadow-md">Event Banner</span>
+                        <h4 class="text-white font-semibold text-lg drop-shadow-md">Banner HUT Dharma Wanita 2023</h4>
+                    </div>
+                </div>
+
+                <div class="portfolio-item banners group relative rounded-2xl overflow-hidden bg-dark border border-gray-800">
+                    <img src="assets/Banner HUT RI 78 uk 2 x 2.7 Meter 2.png" alt="Banner Event" onerror="this.src='https://placehold.co/800x400/2563eb/ffffff?text=Banner+Dies+Natalis+50'" class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-105">
+                    <div class="absolute inset-0 bg-gradient-to-t from-dark/90 via-dark/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-end p-6 pointer-events-none">
+                        <span class="text-primary text-xs font-bold uppercase drop-shadow-md">Event Banner</span>
+                        <h4 class="text-white font-semibold text-lg drop-shadow-md">Banner HUT RI 2023</h4>
+                    </div>
+                </div>
+
+                <div class="portfolio-item banners group relative rounded-2xl overflow-hidden bg-dark border border-gray-800">
+                    <img src="assets/Banner Idul Adha 5,25 x 1,25 Meter 6.png" alt="Banner Event" onerror="this.src='https://placehold.co/800x400/2563eb/ffffff?text=Banner+Dies+Natalis+50'" class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-105">
+                    <div class="absolute inset-0 bg-gradient-to-t from-dark/90 via-dark/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-end p-6 pointer-events-none">
+                        <span class="text-primary text-xs font-bold uppercase drop-shadow-md">Event Banner</span>
+                        <h4 class="text-white font-semibold text-lg drop-shadow-md">Banner Hari Raya Idul Adha 2024</h4>
+                    </div>
+                </div>
+
+                <div class="portfolio-item banners group relative rounded-2xl overflow-hidden bg-dark border border-gray-800">
+                    <img src="assets/Banner Selamat Datang Calon Peserta Didik Baru 5,25 x 1,25 meter 2.png" alt="Banner Event" onerror="this.src='https://placehold.co/800x400/2563eb/ffffff?text=Banner+Dies+Natalis+50'" class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-105">
+                    <div class="absolute inset-0 bg-gradient-to-t from-dark/90 via-dark/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-end p-6 pointer-events-none">
+                        <span class="text-primary text-xs font-bold uppercase drop-shadow-md">Event Banner</span>
+                        <h4 class="text-white font-semibold text-lg drop-shadow-md">Banner Penyambut Calon Peserta Didik Baru 2024</h4>
+                    </div>
+                </div>
+
+                <div class="portfolio-item banners group relative rounded-2xl overflow-hidden bg-dark border border-gray-800">
+                    <img src="assets/Banner SNBP 4 x 2,5 Meter 3.png" alt="Banner Event" onerror="this.src='https://placehold.co/800x400/2563eb/ffffff?text=Banner+Dies+Natalis+50'" class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-105">
+                    <div class="absolute inset-0 bg-gradient-to-t from-dark/90 via-dark/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-end p-6 pointer-events-none">
+                        <span class="text-primary text-xs font-bold uppercase drop-shadow-md">Event Banner</span>
+                        <h4 class="text-white font-semibold text-lg drop-shadow-md">Banner Siswa/i Lolos SNBP 2024</h4>
+                    </div>
+                </div>
+
+                <div class="portfolio-item banners group relative rounded-2xl overflow-hidden bg-dark border border-gray-800">
+                    <img src="assets/Dirgahayu PMI ke-79 5x1 meter.png" alt="Banner Event" onerror="this.src='https://placehold.co/800x400/2563eb/ffffff?text=Banner+Dies+Natalis+50'" class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-105">
+                    <div class="absolute inset-0 bg-gradient-to-t from-dark/90 via-dark/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-end p-6 pointer-events-none">
+                        <span class="text-primary text-xs font-bold uppercase drop-shadow-md">Event Banner</span>
+                        <h4 class="text-white font-semibold text-lg drop-shadow-md">Banner Dirgahayu PMI 2024</h4>
+                    </div>
+                </div>
+
+                <div class="portfolio-item social group relative rounded-2xl overflow-hidden bg-dark border border-gray-800">
+                    <img src="assets/1. Live Report Pra MPLS.png" alt="Live Report" onerror="this.src='https://placehold.co/400x800/0ea5e9/ffffff?text=Live+Report+Story'" class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-105">
+                    <div class="absolute inset-0 bg-gradient-to-t from-dark/90 via-dark/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-end p-6 pointer-events-none">
+                        <span class="text-primary text-xs font-bold uppercase drop-shadow-md">Social Media</span>
+                        <h4 class="text-white font-semibold text-lg drop-shadow-md">Live Report MPLS 2026 SMAN 2 Pare</h4>
+                    </div>
+                </div>
+
+                <div class="portfolio-item social group relative rounded-2xl overflow-hidden bg-dark border border-gray-800">
+                    <img src="assets/Live Report Story IG 2.png" alt="Live Report" onerror="this.src='https://placehold.co/400x800/0ea5e9/ffffff?text=Live+Report+Story'" class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-105">
+                    <div class="absolute inset-0 bg-gradient-to-t from-dark/90 via-dark/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-end p-6 pointer-events-none">
+                        <span class="text-primary text-xs font-bold uppercase drop-shadow-md">Social Media</span>
+                        <h4 class="text-white font-semibold text-lg drop-shadow-md">Live Report KTS 2023 SMAN 2 Pare</h4>
+                    </div>
+                </div>
+
+                <div class="portfolio-item social group relative rounded-2xl overflow-hidden bg-dark border border-gray-800">
+                    <img src="assets/Live Report.png" alt="Live Report" onerror="this.src='https://placehold.co/400x800/0ea5e9/ffffff?text=Live+Report+Story'" class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-105">
+                    <div class="absolute inset-0 bg-gradient-to-t from-dark/90 via-dark/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-end p-6 pointer-events-none">
+                        <span class="text-primary text-xs font-bold uppercase drop-shadow-md">Social Media</span>
+                        <h4 class="text-white font-semibold text-lg drop-shadow-md">Live Report Class Meet 2024 SMAN 2 Pare</h4>
+                    </div>
+                </div>
+
+                <div class="portfolio-item social group relative rounded-2xl overflow-hidden bg-dark border border-gray-800">
+                    <img src="assets/Live Report Suksesi HIMA TELKOM 2026.png" alt="Live Report" onerror="this.src='https://placehold.co/400x800/0ea5e9/ffffff?text=Live+Report+Story'" class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-105">
+                    <div class="absolute inset-0 bg-gradient-to-t from-dark/90 via-dark/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-end p-6 pointer-events-none">
+                        <span class="text-primary text-xs font-bold uppercase drop-shadow-md">Social Media</span>
+                        <h4 class="text-white font-semibold text-lg drop-shadow-md">Live Report Suksesi HIMA TELKOM 2026</h4>
+                    </div>
+                </div>
+
+                <div class="portfolio-item social group relative rounded-2xl overflow-hidden bg-dark border border-gray-800">
+                    <img src="assets/Sosialisasi Kampanye.png" alt="Live Report" onerror="this.src='https://placehold.co/400x800/0ea5e9/ffffff?text=Live+Report+Story'" class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-105">
+                    <div class="absolute inset-0 bg-gradient-to-t from-dark/90 via-dark/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-end p-6 pointer-events-none">
+                        <span class="text-primary text-xs font-bold uppercase drop-shadow-md">Social Media</span>
+                        <h4 class="text-white font-semibold text-lg drop-shadow-md">Pamflet Sosialisasi Kampanye KPU HIMA TELKOM 2026</h4>
+                    </div>
+                </div>
+
+                <div class="portfolio-item social group relative rounded-2xl overflow-hidden bg-dark border border-gray-800">
+                    <img src="assets/Pamflet Hari Buruh 2.png" alt="Live Report" onerror="this.src='https://placehold.co/400x800/0ea5e9/ffffff?text=Live+Report+Story'" class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-105">
+                    <div class="absolute inset-0 bg-gradient-to-t from-dark/90 via-dark/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-end p-6 pointer-events-none">
+                        <span class="text-primary text-xs font-bold uppercase drop-shadow-md">Social Media</span>
+                        <h4 class="text-white font-semibold text-lg drop-shadow-md">Pamflet Hari Buruh 2024</h4>
+                    </div>
+                </div>
+
+                <div class="portfolio-item social group relative rounded-2xl overflow-hidden bg-dark border border-gray-800">
+                    <img src="assets/Pamflet SKAL.png" alt="Live Report" onerror="this.src='https://placehold.co/400x800/0ea5e9/ffffff?text=Live+Report+Story'" class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-105">
+                    <div class="absolute inset-0 bg-gradient-to-t from-dark/90 via-dark/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-end p-6 pointer-events-none">
+                        <span class="text-primary text-xs font-bold uppercase drop-shadow-md">Social Media</span>
+                        <h4 class="text-white font-semibold text-lg drop-shadow-md">Pamflet SKAL SMAN 2 Pare 2024</h4>
+                    </div>
+                </div>
+
+                <div class="portfolio-item social group relative rounded-2xl overflow-hidden bg-dark border border-gray-800">
+                    <img src="assets/Story IG Idul Adha.png" alt="Live Report" onerror="this.src='https://placehold.co/400x800/0ea5e9/ffffff?text=Live+Report+Story'" class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-105">
+                    <div class="absolute inset-0 bg-gradient-to-t from-dark/90 via-dark/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-end p-6 pointer-events-none">
+                        <span class="text-primary text-xs font-bold uppercase drop-shadow-md">Social Media</span>
+                        <h4 class="text-white font-semibold text-lg drop-shadow-md">Pamflet Hari Raya Idul Adha 2024</h4>
+                    </div>
+                </div>
+
+                <div class="portfolio-item social group relative rounded-2xl overflow-hidden bg-dark border border-gray-800">
+                    <img src="assets/Story IG Lunar New year.png" alt="Live Report" onerror="this.src='https://placehold.co/400x800/0ea5e9/ffffff?text=Live+Report+Story'" class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-105">
+                    <div class="absolute inset-0 bg-gradient-to-t from-dark/90 via-dark/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-end p-6 pointer-events-none">
+                        <span class="text-primary text-xs font-bold uppercase drop-shadow-md">Social Media</span>
+                        <h4 class="text-white font-semibold text-lg drop-shadow-md">Pamflet Lunar New Year 2024</h4>
+                    </div>
+                </div>
+
+                <div class="portfolio-item merch group relative rounded-2xl overflow-hidden bg-dark border border-gray-800">
+                    <img src="assets/Gabungan Merchandise 2.png" alt="Merchandise" onerror="this.src='https://placehold.co/800x800/2563eb/ffffff?text=Merchandise+Set'" class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-105">
+                    <div class="absolute inset-0 bg-gradient-to-t from-dark/90 via-dark/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-end p-6 pointer-events-none">
+                        <span class="text-primary text-xs font-bold uppercase drop-shadow-md">Merchandise</span>
+                        <h4 class="text-white font-semibold text-lg drop-shadow-md">Merchandise Set Dies Natalis 50 SMAN 2 Pare</h4>
+                    </div>
+                </div>
+
+                <div class="portfolio-item merch group relative rounded-2xl overflow-hidden bg-dark border border-gray-800">
+                    <img src="assets/Lanyard NEXELLENT.png" alt="Merchandise" onerror="this.src='https://placehold.co/800x800/2563eb/ffffff?text=Merchandise+Set'" class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-105">
+                    <div class="absolute inset-0 bg-gradient-to-t from-dark/90 via-dark/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-end p-6 pointer-events-none">
+                        <span class="text-primary text-xs font-bold uppercase drop-shadow-md">Merchandise</span>
+                        <h4 class="text-white font-semibold text-lg drop-shadow-md">Lanyard Design OSIS 2024</h4>
+                    </div>
+                </div>
+
+                <div class="portfolio-item logo group relative rounded-2xl overflow-hidden bg-dark border border-gray-800">
+                    <img src="assets/Logo NEXELLENT.png" alt="Logo Design" onerror="this.src='https://placehold.co/800x800/2563eb/ffffff?text=Logo+Design+Set'" class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-105">
+                    <div class="absolute inset-0 bg-gradient-to-t from-dark/90 via-dark/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-end p-6 pointer-events-none">
+                        <span class="text-primary text-xs font-bold uppercase drop-shadow-md">Logo Design</span>
+                        <h4 class="text-white font-semibold text-lg drop-shadow-md">Logo Design OSIS 2024</h4>
+                    </div>
+                </div>
+
+                <div class="portfolio-item logo group relative rounded-2xl overflow-hidden bg-dark border border-gray-800">
+                    <img src="assets/Logo DN 50 SEAZONE 2.png" alt="Logo Design" onerror="this.src='https://placehold.co/800x800/2563eb/ffffff?text=Merchandise+Set'" class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-105">
+                    <div class="absolute inset-0 bg-gradient-to-t from-dark/90 via-dark/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-end p-6 pointer-events-none">
+                        <span class="text-primary text-xs font-bold uppercase drop-shadow-md">Logo Design</span>
+                        <h4 class="text-white font-semibold text-lg drop-shadow-md">Logo Dies Natalis SMAN 2 Pare 2024</h4>
+                    </div>
+                </div>
+
+                <div class="portfolio-item logo group relative rounded-2xl overflow-hidden bg-dark border border-gray-800">
+                    <img src="assets/Logo 7.png" alt="Logo Design" onerror="this.src='https://placehold.co/800x800/2563eb/ffffff?text=Merchandise+Set'" class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-105">
+                    <div class="absolute inset-0 bg-gradient-to-t from-dark/90 via-dark/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-end p-6 pointer-events-none">
+                        <span class="text-primary text-xs font-bold uppercase drop-shadow-md">Logo Design</span>
+                        <h4 class="text-white font-semibold text-lg drop-shadow-md">Logo KTS SMAN 2 Pare 2024</h4>
+                    </div>
+                </div>
+
+                <div class="portfolio-item logo group relative rounded-2xl overflow-hidden bg-dark border border-gray-800">
+                    <img src="assets/Logo 5.2.png" alt="Logo Design" onerror="this.src='https://placehold.co/800x800/2563eb/ffffff?text=Merchandise+Set'" class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-105">
+                    <div class="absolute inset-0 bg-gradient-to-t from-dark/90 via-dark/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-end p-6 pointer-events-none">
+                        <span class="text-primary text-xs font-bold uppercase drop-shadow-md">Logo Design</span>
+                        <h4 class="text-white font-semibold text-lg drop-shadow-md">Logo Class Meet SMAN 2 Pare 2024</h4>
+                    </div>
+                </div>
+
+                <div class="portfolio-item clothes group relative rounded-2xl overflow-hidden bg-dark border border-gray-800">
+                    <img src="assets/Almet depan NXT.png" alt="Clothes Design" onerror="this.src='https://placehold.co/800x800/2563eb/ffffff?text=Merchandise+Set'" class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-105">
+                    <div class="absolute inset-0 bg-gradient-to-t from-dark/90 via-dark/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-end p-6 pointer-events-none">
+                        <span class="text-primary text-xs font-bold uppercase drop-shadow-md">Clothes Design</span>
+                        <h4 class="text-white font-semibold text-lg drop-shadow-md">Design Almamater OSIS 2024</h4>
+                    </div>
+                </div>
+
+                <div class="portfolio-item clothes group relative rounded-2xl overflow-hidden bg-dark border border-gray-800">
+                    <img src="assets/pdh depan osis hitam.png" alt="Clothes Design" onerror="this.src='https://placehold.co/800x800/2563eb/ffffff?text=Merchandise+Set'" class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-105">
+                    <div class="absolute inset-0 bg-gradient-to-t from-dark/90 via-dark/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-end p-6 pointer-events-none">
+                        <span class="text-primary text-xs font-bold uppercase drop-shadow-md">Clothes Design</span>
+                        <h4 class="text-white font-semibold text-lg drop-shadow-md">Design PDH OSIS 2024</h4>
+                    </div>
+                </div>
+
+                
+
+            </div>
+        </section>
+
+        <!-- SECTION: Contact Me -->
+        <section id="contact" class="bg-card rounded-3xl p-8 sm:p-12 border border-gray-800 shadow-xl text-center fade-in-up">
+            <h2 class="text-3xl font-bold text-white mb-3">Contact me :</h2>
+            <div class="w-12 h-1 bg-primary mx-auto rounded-full mb-8"></div>
+            
+            <div class="flex flex-wrap justify-center gap-6 text-sm">
+                <a href="mailto:alfiandra2006@gmail.com" class="flex items-center gap-3 bg-dark px-6 py-4 rounded-2xl border border-gray-800 hover:border-primary transition-colors text-gray-300 hover:text-white">
+                    <i class="fas fa-envelope text-primary text-lg"></i>
+                    <span>alfiandra2006@gmail.com</span>
+                </a>
+                <a href="tel:+6285117662759" class="flex items-center gap-3 bg-dark px-6 py-4 rounded-2xl border border-gray-800 hover:border-green-500 transition-colors text-gray-300 hover:text-white">
+                    <i class="fab fa-whatsapp text-green-500 text-lg"></i>
+                    <span>+62 851-1766-2759</span>
+                </a>
+                <div class="flex items-center gap-3 bg-dark px-6 py-4 rounded-2xl border border-gray-800 text-gray-300">
+                    <i class="fab fa-instagram text-primary"></i>
+                    <span>@arph._</span>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-dark py-6 border-t border-gray-800/60 text-center text-xs text-gray-500">
+        <p>&copy; <span id="year"></span> Alfiandra Raditya Pratama Hardiono. All Rights Reserved.</p>
+    </footer>
+
+    <!-- MODAL GAMBAR (Full Screen) -->
+    <div id="image-modal" class="fixed inset-0 z-[100] hidden bg-black/95 backdrop-blur-sm flex justify-center items-center p-4 transition-opacity duration-300 opacity-0 cursor-pointer">
+        <button id="close-modal" class="absolute top-6 right-8 text-white hover:text-primary text-4xl focus:outline-none drop-shadow-lg">&times;</button>
+        <img id="modal-img" src="" alt="Full preview" class="max-w-full max-h-[90vh] object-contain rounded-lg shadow-2xl scale-95 transition-transform duration-300">
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        // Mobile Menu Toggle
+        const btn = document.getElementById('mobile-menu-btn');
+        const menu = document.getElementById('mobile-menu');
+        
+        btn.addEventListener('click', () => {
+            menu.classList.toggle('hidden');
+        });
+
+        menu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                menu.classList.add('hidden');
+            });
+        });
+
+        // Intersection Observer for scroll animations
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.fade-in-up').forEach(el => observer.observe(el));
+
+        // Portfolio Category Filtering
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const portfolioItems = document.querySelectorAll('.portfolio-item');
+
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                filterBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+
+                const filterValue = btn.getAttribute('data-filter');
+
+                portfolioItems.forEach(item => {
+                    item.style.opacity = '0';
+                    item.style.transform = 'scale(0.95)';
+                    
+                    setTimeout(() => {
+                        if (filterValue === 'all' || item.classList.contains(filterValue)) {
+                            item.classList.remove('hidden');
+                            setTimeout(() => {
+                                item.style.opacity = '1';
+                                item.style.transform = 'scale(1)';
+                            }, 50);
+                        } else {
+                            item.classList.add('hidden');
+                        }
+                    }, 300);
+                });
+            });
+        });
+
+        // Lightbox / Image Modal Logic
+        const modal = document.getElementById('image-modal');
+        const modalImg = document.getElementById('modal-img');
+        const closeModalBtn = document.getElementById('close-modal');
+        const imageCards = document.querySelectorAll('.portfolio-item:not(.videos)'); // Ambil item selain video
+
+        // Fungsi buka modal
+        function openModal(src) {
+            modal.classList.remove('hidden');
+            setTimeout(() => {
+                modal.classList.remove('opacity-0');
+                modalImg.classList.remove('scale-95');
+                modalImg.classList.add('scale-100');
+            }, 10);
+            modalImg.src = src;
+            document.body.style.overflow = 'hidden'; // Menghentikan scroll pada background
+        }
+
+        // Fungsi tutup modal
+        function closeModal() {
+            modal.classList.add('opacity-0');
+            modalImg.classList.remove('scale-100');
+            modalImg.classList.add('scale-95');
+            setTimeout(() => {
+                modal.classList.add('hidden');
+                modalImg.src = '';
+                document.body.style.overflow = 'auto'; // Mengembalikan fungsi scroll
+            }, 300);
+        }
+
+        // Event listener saat gambar diklik
+        imageCards.forEach(card => {
+            card.classList.add('cursor-pointer');
+            card.addEventListener('click', () => {
+                const img = card.querySelector('img');
+                if (img) {
+                    openModal(img.src);
+                }
+            });
+        });
+
+        // Event listener saat tombol (X) atau background modal diklik
+        closeModalBtn.addEventListener('click', closeModal);
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal || e.target === modalImg) {
+                closeModal();
+            }
+        });
+    </script>
+</body>
+</html>
